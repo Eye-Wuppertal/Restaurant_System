@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/src/com/tal/controller/CartController.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/tal/controller/OrderController.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/tal/controller/ProductController.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/tal/domain/Cart.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/tal/domain/CartItem.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/tal/domain/Category.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/tal/domain/Order.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/tal/domain/OrderItem.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/tal/domain/PageBean.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/tal/domain/Product.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/tal/domain/User.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/tal/mapper/CategoryMapper.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/tal/mapper/CategoryMapper.xml" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/tal/mapper/OrderMapper.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/tal/mapper/OrderMapper.xml" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/tal/mapper/ProductMapper.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/tal/mapper/ProductMapper.xml" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/tal/service/CartService.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/tal/service/CategoryService.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/tal/service/OrderService.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/tal/service/ProductService.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/tal/service/UserService.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/tal/service/impl/CartServiceImpl.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/tal/service/impl/CategoryServiceImpl.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/tal/service/impl/OrderServiceImpl.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/tal/service/impl/ProductServiceImpl.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/tal/service/impl/UserServiceImpl.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/tal/utils/CodeUtils.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/tal/utils/Constract.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/tal/utils/LoginFilter.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/tal/utils/MailUtils.java" charset="GBK" />
+    <file url="PROJECT" charset="UTF-8" />
+  </component>
+</project>

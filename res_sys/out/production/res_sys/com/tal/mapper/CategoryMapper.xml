@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 用户表的Mapper -->
+<mapper namespace="com.tal.mapper.CategoryMapper">
+
+	<!-- 取得所有分类 -->
+	<select id="findAll" resultType="Category">
+		select cid,cname,description from tb_category
+	</select>
+	
+</mapper>

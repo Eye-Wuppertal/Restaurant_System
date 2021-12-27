@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 用户表的Mapper -->
+<mapper namespace="com.tal.mapper.ProductMapper">
+
+	<!-- 所有字段的SQL片段 -->
+	<sql id="all_fields"> pid,pname,market_price,shop_price,pimage,pdate,is_hot,pdesc,pflag,cid </sql>
+
+	<!-- 进行字段映射，表中的字段名和类中的属性名不一样时使用，注意：相同的可以不管，只设置不同的 -->
+	<resultMap type="Product" id="map_product">
+		<result column="market_price" property="marketPrice" />
+		<result column="shop_price" property="shopPrice" />
+		<result column="is_hot" property="isHot" />
+	</resultMap>
+
+	<!-- 取得9个最新商品，按商品创建日期排序，降序排列（大的在前也就是新的在前），取前九个 -->
+	<select id="findNewProducts" resultType="Product" resultMap="map_product">
+		select <include refid="all_fields"/> from tb_product order by pdate desc limit 0,9
+	</select>
+
+
+	<!-- 取得9个热门商品，is_hot字段值为1的，取前九个 -->
+	<select id="findHotProducts" resultType="Product" resultMap="map_product">
+		select <include refid="all_fields"/> from tb_product where is_hot=1 limit 0,9
+	</select>
+
+	<!-- 根据分类（CID）分页取得商品信息
+		传入的参数有多个
+	<select id="findByCidByPage" resultType="Product" resultMap="map_product">
+		select <include refid="all_fields"/> from tb_product where cid=#{0} limit #{1},#{2}
+	</select>
+	 -->
+
+	<!-- 取得指定分类下的商品的总条数
+	<select id="getCountByCid" resultType="int">
+		select count(*) from tb_product where cid=#{0}
+	</select> -->
+	
+	<!-- 根据传入的关键字，模糊查询指定页的商品 -->
+	<select id="findByKeywordByCidByPage" resultType="Product" resultMap="map_product">
+		select <include refid="all_fields"/> from tb_product 
+			<where>
+				<if test="cid != null">
+					cid=#{cid}
+				</if>
+				<if test="keyword != null">
+					and (pname like "%"#{keyword}"%" or pdesc like "%"#{keyword}"%") 
+				</if>
+			</where>
+			limit #{startIndex},#{pageSize}				
+	</select>
+	
+	<!-- 取得包含关键字的商品的总条数 -->
+	<select id="getCountByKeywordByCid" resultType="int">
+		select count(*) from tb_product 
+			<where>
+				<if test="cid != null">
+					cid=#{cid}
+				</if>
+				<if test="keyword != null">
+					and (pname like "%"#{keyword}"%" or pdesc like "%"#{keyword}"%") 
+				</if>
+			</where>
+	</select>
+
+
+	<!-- 取得包含关键字的商品的总条数 -->
+	<select id="findByPid" resultType="Product" resultMap="map_product">
+		select <include refid="all_fields"/> from tb_product where pid=#{pid}
+	</select>
+
+</mapper>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 订单表和订单项表的Mapper -->
+<mapper namespace="com.tal.mapper.OrderMapper">
+	
+	<!-- 向tb_order表插入一条记录，订单表中的ordertime是timestamp类型，插入记录时不给值则为当前时间
+		收货人、电话、地址，需要“确认订单”时更新。所以也不插入。
+	 -->
+	<insert id="insertOrder" parameterType="Order">
+		insert into tb_order( oid , total , state , uid ) values( #{oid} , #{total} , #{state} , #{uid} )
+	</insert>
+	
+	<!-- 插入订单项，collection是指定集合类型，和参数名无关 -->
+	<insert id="insertOrderItems" parameterType="OrderItem">
+		insert into tb_orderitem( oid , pid , count , subtotal ) values 
+		<foreach collection="list" item="oi" separator=",">
+		( #{oi.oid} , #{oi.pid} , #{oi.count} , #{oi.subtotal} )
+		</foreach>
+	</insert>
+	
+	<!-- 更新订单的收货信息 -->
+	<update id="updateOrder" parameterType="Order">
+		update tb_order set name=#{name},telephone=#{telephone},address=#{address},state=#{state} where oid=#{oid}
+	</update>
+	
+	<!-- Mybatis提供了关联映射的封装方式，需要设置ResultMap -->
+	<resultMap type="Order" id="map_order_orderitem_product">
+		<id column="oid" property="oid" />
+		<result column="ordertime" property="ordertime" />
+		<result column="total" property="total" />
+		<result column="state" property="state" />
+		<result column="address" property="address" />
+		<result column="name" property="name" />
+		<result column="telephone" property="telephone" />
+		<result column="uid" property="uid" />
+		<!-- 一对多的映射，一个订单中有多个订单项，属性名为items，items是一个List集合，集合中的对象的类型是OrderItem -->
+		<collection property="items" ofType="OrderItem">
+			<result column="oid" property="oid" />
+			<result column="pid" property="pid" />
+			<result column="count" property="count" />
+			<result column="subtotal" property="subtotal" />
+			<!-- 一对一映射，一个订单项对应一个商品 -->
+			<association property="product" javaType="Product">
+				<id column="pid" property="pid" />
+				<result column="pname" property="pname" />
+				<result column="market_price" property="marketPrice" />
+				<result column="shop_price" property="shopPrice" />
+				<result column="pimage" property="pimage" />
+				<result column="pdate" property="pdate" />
+				<result column="is_hot" property="isHot" />
+				<result column="pdesc" property="pdesc" />
+				<result column="pflag" property="pflag" />
+				<result column="cid" property="cid" />
+			</association>
+		</collection>
+	</resultMap>
+	
+	
+	<!-- 分页查询指定用户的订单（含订单项和商品），按订单时间降序排列（新的在前） -->
+	<select id="findOrdersByUidByPage" resultMap="map_order_orderitem_product">
+		SELECT 
+			o.oid , o.ordertime , o.total , o.state , o.address , o.name , o.telephone , o.uid ,
+			oi.pid , oi.count , oi.subtotal ,
+			p.pname , p.market_price , p.shop_price , p.pimage , p.pdate , p.is_hot , p.pdesc , p.pflag , p.cid
+		FROM 
+			tb_order o INNER JOIN tb_orderitem oi INNER JOIN tb_product p 
+		ON 
+			o.oid=oi.oid AND oi.pid=p.pid
+		where 
+			o.uid=#{uid}
+		order by
+			o.ordertime desc
+		limit #{startIndex},#{pageSize}
+	</select>
+	
+	<!-- 查询指定用户的订单总数 -->
+	<select id="getCountByUid" resultType="int">
+		select count(*) from tb_order where uid=#{uid}
+	</select>
+
+</mapper>

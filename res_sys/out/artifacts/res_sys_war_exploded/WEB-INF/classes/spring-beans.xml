@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context" 
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context 
+		http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/aop 
+		http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
+		http://www.springframework.org/schema/tx 
+		http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
+
+	<!-- 引入外部的属性文件 -->
+	<context:property-placeholder location="classpath:db.properties"/>
+
+	<!-- 设置组件扫描，排除Controller -->
+	<context:component-scan base-package="com.tal">
+		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+	</context:component-scan>
+
+	<!-- 配置Mybatis , 设置在哪个包扫描 Mapper -->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="com.tal.mapper" />
+	</bean>
+
+	<!-- 声明数据源，使用C3P0连接池管理连接对象 -->
+	<bean id="c3p0DataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+		<property name="driverClass" value="${jdbc.driver}" />
+		<property name="jdbcUrl" value="${jdbc.url}" />
+		<property name="user" value="${jdbc.username}" />
+		<property name="password" value="${jdbc.password}" />
+		<!-- 也可以继续设置C3P0的相关配置项，如：连接池的最大容量、最大空闲等 -->
+	</bean>
+
+	<!-- 管理SqlSessionFactory -->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<!-- SqlSessionFactory对象的dataSource属性，引用了ID为c3p0DataSource的对象 -->
+		<property name="dataSource" ref="c3p0DataSource" />
+		<!-- 设置mybatis的主配置文件所在的位置及文件名 -->
+		<property name="configLocation" value="classpath:mybatis.xml" />
+	</bean>
+
+	
+	
+	<!-- 创建事务管理器，需要引用数据源 -->
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="c3p0DataSource" />
+	</bean>
+	
+	<!-- 创建事务指导 -->
+	<tx:advice transaction-manager="transactionManager" id="txAdvice">
+		<tx:attributes>
+			<tx:method name="get*" read-only="true"/>
+			<tx:method name="select*" read-only="true"/>
+			<tx:method name="load*" read-only="true"/>
+			<tx:method name="find*" read-only="true"/><!-- 设置以上查询类的方法都是只读事务，以提高执行效率 -->
+			<tx:method name="*" propagation="REQUIRED"/><!-- 设置其它方法都是普通事务 -->
+		</tx:attributes>
+	</tx:advice>
+
+	<!-- 使用AOP设置关联事务管理器和事务指导 -->
+	<aop:config>
+		<!-- 设置切入点表达式：
+			com.tal.service包下的任意子包（第二个*号）下的任意类（第三个*号）
+			的所有方法（第二个*后的小括号中的两个点代表任意参数），
+			方法返回值任意（第一个*）
+			以上，这些方法都是切入点
+		-->
+		<aop:pointcut expression="execution(* com.tal.service.*.*(..))" id="pointcut"/>
+		<!-- 
+			设置事务指导和切入点的关联，也就是说，要设置在哪个切入点，切入哪个事务指导
+			所以此标签的两个属性都是在引用别的标签的ID
+			advice-ref：引用事务指导的ID
+			pointcut-ref:引用切入点的ID
+		 -->
+		<aop:advisor advice-ref="txAdvice" pointcut-ref="pointcut"/>
+	</aop:config>
+	
+
+</beans>
+
+
