@@ -21,24 +21,22 @@
 	<body>
 		
 			<!--
-            	时间：2015-12-30
             	描述：菜单栏
             -->
-			<div class="container-fluid">
-				<div class="col-md-4">
-					<img src="${pageContext.request.contextPath}../resources/img/logo2.png"  alt=""/>
+
+				<div class="container-fluid">
+					<div class="col-md-3">
+					</div>
+					<div class="col-md-4">
+						<img src="${pageContext.request.contextPath}../resources/image/restaurant/res_logo01.png"  alt="图片无法显示"/>
+					</div>
+					<div class="text-center" style="padding-top:60px" >
+						<ol class="list-inline">
+							<%@ include file="include_login.jsp"%>
+						</ol>
+					</div>
 				</div>
-				<div class="col-md-5">
-					<img src="${pageContext.request.contextPath}../resources/img/header.png"  alt=""/>
-				</div>
-				<div class="col-md-3" style="padding-top:20px">
-					<ol class="list-inline">
-						<%@ include file="include_login.jsp" %>
-					</ol>
-				</div>
-			</div>
 			<!--
-            	时间：2015-12-30
             	描述：导航条
             -->
 			<div class="container-fluid">
@@ -81,7 +79,7 @@
 					<img src="${pageContext.request.contextPath}../resources${p.pimage}" width="170" height="170" style="display: inline-block;" alt="">
 				</a>
 				<p><a href="${pageContext.request.contextPath}/showDetail?pid=${p.pid}" style='color:green'>${p.pname }</a></p>
-				<p><span style="color: #FF0000; ">商城价：&yen;${p.shopPrice }</span></p>
+				<p><span style="color: #FF0000; ">价格：&yen;${p.pPrice }</span></p>
 			</div>
 		</c:forEach>
 
@@ -125,30 +123,15 @@
 			<div style="overflow: hidden;">
 
 				<ul style="list-style: none;">
-					<li style="width: 150px;height: 216px;float: left;margin: 0 8px 0 0;padding: 0 18px 15px;text-align: center;"><img src="${pageContext.request.contextPath}../resources/products/1/cs10001.jpg" width="130px" height="130px"  alt=""/></li>
+					<li style="width: 150px;height: 216px;float: left;margin: 0 8px 0 0;padding: 0 18px 15px;text-align: center;"><img src="${pageContext.request.contextPath}" width="130px" height="130px"  alt="无法加载该图片"/></li>
 				</ul>
 
 			</div>
 		</div>
-		<div style="margin-top:50px;">
-			<img src="${pageContext.request.contextPath}../resources/image/footer.jpg" width="100%" height="78" alt="我们的优势" title="我们的优势" />
-		</div>
 
-		<div style="text-align: center;margin-top: 5px;">
-			<ul class="list-inline">
-				<li><a>关于我们</a></li>
-				<li><a>联系我们</a></li>
-				<li><a>招贤纳士</a></li>
-				<li><a>法律声明</a></li>
-				<li><a>友情链接</a></li>
-				<li><a target="_blank">支付方式</a></li>
-				<li><a target="_blank">配送方式</a></li>
-				<li><a>服务声明</a></li>
-				<li><a>广告声明</a></li>
-			</ul>
-		</div>
+
 		<div style="text-align: center;margin-top: 5px;margin-bottom:20px;">
-			Copyright &copy; 2005-2016 明德商城 版权所有
+			Copyright &copy; 2021 HBUT 版权所有
 		</div>
 
 	</body>

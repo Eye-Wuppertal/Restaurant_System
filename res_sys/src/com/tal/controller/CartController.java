@@ -15,8 +15,8 @@ public class CartController {
 	@Autowired
 	private CartService cartService;
 
-	/*添加一个购物项到购物车中
-	 * pid:商品ID
+	/*添加一个菜品到购物车中
+	 * pid:菜品ID
 	 * count:要加入到购物车中的数量
 	 */
 	@RequestMapping("/addCartItem")

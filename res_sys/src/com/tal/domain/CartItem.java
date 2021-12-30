@@ -1,5 +1,8 @@
 package com.tal.domain;
-
+/*
+    @TODO:
+    @Author tal
+*/
 //购物项实体类
 public class CartItem {
 	private com.tal.domain.Product product;	//购物车中的购物项对应的商品
@@ -32,7 +35,7 @@ public class CartItem {
 	}
 	public double getSubTotal() {
 		//小计=单价*数量
-		this.subTotal = product.getShopPrice()*count;
+		this.subTotal = product.getpPrice()*count;
 		return subTotal;
 	}
 	public void setSubTotal(double subTotal) {

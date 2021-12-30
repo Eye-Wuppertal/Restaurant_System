@@ -44,24 +44,22 @@
 
 		
 			<!--
-            	时间：2015-12-30
+
             	描述：菜单栏
             -->
 			<div class="container-fluid">
+				<div class="col-md-3">
+				</div>
 				<div class="col-md-4">
-					<img src="${pageContext.request.contextPath}../resources/img/logo2.png"  alt=""/>
+					<img src="${pageContext.request.contextPath}../resources/image/restaurant/res_logo01.png"  alt="图片无法显示"/>
 				</div>
-				<div class="col-md-5">
-					<img src="${pageContext.request.contextPath}../resources/img/header.png"  alt=""/>
-				</div>
-				<div class="col-md-3" style="padding-top:20px">
+				<div class="text-center" style="padding-top:60px" >
 					<ol class="list-inline">
-						<%@ include file="include_login.jsp" %>
+						<%@ include file="include_login.jsp"%>
 					</ol>
 				</div>
 			</div>
 			<!--
-            	时间：2015-12-30
             	描述：导航条
             -->
 			<div class="container-fluid">
@@ -101,7 +99,7 @@
 						<tbody>
 							<tr class="warning">
 								<th>图片</th>
-								<th>商品</th>
+								<th>菜品</th>
 								<th>价格</th>
 								<th>数量</th>
 								<th>小计</th>
@@ -122,7 +120,7 @@
 									<a target="_blank">${ci.value.product.pname }</a>
 								</td>
 								<td>
-									￥${ci.value.product.shopPrice }
+									￥${ci.value.product.pPrice }
 								</td>
 								<td>
 									<label>
@@ -149,8 +147,8 @@
 			<div style="margin-right:130px;">
 				<div style="text-align:right;">
 					<em style="color:#ff6600;">
-				登录后确认是否享有优惠&nbsp;&nbsp;
-			</em> &nbsp; 商品金额: <strong style="color:#ff6600;">￥${cart.total }元</strong>
+
+			</em> &nbsp; 共计: <strong style="color:#ff6600;">￥${cart.total }元</strong>
 				</div>
 				<div style="text-align:right;margin-top:10px;margin-bottom:10px;">
 					<a href="#" id="clear" class="clear">清空购物车</a>
@@ -163,25 +161,9 @@
 
 		</div>
 
-		<div style="margin-top:50px;">
-			<img src="${pageContext.request.contextPath}../resources/image/footer.jpg" width="100%" height="78" alt="我们的优势" title="我们的优势" />
-		</div>
 
-		<div style="text-align: center;margin-top: 5px;">
-			<ul class="list-inline">
-				<li><a>关于我们</a></li>
-				<li><a>联系我们</a></li>
-				<li><a>招贤纳士</a></li>
-				<li><a>法律声明</a></li>
-				<li><a>友情链接</a></li>
-				<li><a target="_blank">支付方式</a></li>
-				<li><a target="_blank">配送方式</a></li>
-				<li><a>服务声明</a></li>
-				<li><a>广告声明</a></li>
-			</ul>
-		</div>
 		<div style="text-align: center;margin-top: 5px;margin-bottom:20px;">
-			Copyright &copy; 2005-2016 明德商城 版权所有
+			Copyright &copy; 2021 HBUT 版权所有
 		</div>
 
 	</body>

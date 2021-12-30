@@ -1,5 +1,8 @@
 package com.tal.domain;
-
+/*
+    @TODO:
+    @Author tal
+*/
 import java.util.Date;
 
 /*
@@ -21,28 +24,24 @@ public class Product {
 
 	private String pid;				//商品ID
 	private String pname;			//商品名称
-	private double marketPrice;		//市场价
-	private double shopPrice;		//商城价
+	private double pPrice;		//商品价格
 	private String pimage;			//图片路径
 	private Date pdate;				//商品创建日期
 	private int isHot;				//是否是热门商品（1是，0不是）
-	private String pdesc;			//商品描述
 	private int pflag;				//商品状态（0下架，1在售）
 	private String cid;				//商品所属分类
 
 	public Product(){}
 
-	public Product(String pid, String pname, double marketPrice, double shopPrice, String pimage, Date pdate, int isHot,
-			String pdesc, int pflag, String cid) {
+	public Product(String pid, String pname, double pPrice, String pimage, Date pdate, int isHot,
+			 int pflag, String cid) {
 		super();
 		this.pid = pid;
 		this.pname = pname;
-		this.marketPrice = marketPrice;
-		this.shopPrice = shopPrice;
+		this.pPrice = pPrice;
 		this.pimage = pimage;
 		this.pdate = pdate;
 		this.isHot = isHot;
-		this.pdesc = pdesc;
 		this.pflag = pflag;
 		this.cid = cid;
 	}
@@ -63,20 +62,12 @@ public class Product {
 		this.pname = pname;
 	}
 
-	public double getMarketPrice() {
-		return marketPrice;
+	public double getpPrice() {
+		return pPrice;
 	}
 
-	public void setMarketPrice(double marketPrice) {
-		this.marketPrice = marketPrice;
-	}
-
-	public double getShopPrice() {
-		return shopPrice;
-	}
-
-	public void setShopPrice(double shopPrice) {
-		this.shopPrice = shopPrice;
+	public void setpPrice(double pPrice) {
+		this.pPrice = pPrice;
 	}
 
 	public String getPimage() {
@@ -103,14 +94,6 @@ public class Product {
 		this.isHot = isHot;
 	}
 
-	public String getPdesc() {
-		return pdesc;
-	}
-
-	public void setPdesc(String pdesc) {
-		this.pdesc = pdesc;
-	}
-
 	public int getPflag() {
 		return pflag;
 	}
@@ -129,8 +112,8 @@ public class Product {
 
 	@Override
 	public String toString() {
-		return "Product [pid=" + pid + ", pname=" + pname + ", marketPrice=" + marketPrice + ", shopPrice=" + shopPrice
-				+ ", pimage=" + pimage + ", pdate=" + pdate + ", isHot=" + isHot + ", pdesc=" + pdesc + ", pflag="
+		return "Product [pid=" + pid + ", pname=" + pname + ",  pPrice=" + pPrice
+				+ ", pimage=" + pimage + ", pdate=" + pdate + ", isHot=" + isHot + ", pflag="
 				+ pflag + ", cid=" + cid + "]";
 	}
 

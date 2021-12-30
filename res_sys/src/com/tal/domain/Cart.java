@@ -1,5 +1,8 @@
 package com.tal.domain;
-
+/*
+    @TODO:
+    @Author tal
+*/
 import java.util.HashMap;
 import java.util.Map;
 
@@ -8,9 +11,7 @@ public class Cart {
 	//保存购物车中所有购物项的集合，为了方便查找其中的购物项，使用PID做为Map中的Key
 	private Map<String,CartItem> items = new HashMap<String,CartItem>();
 	private double total;		//购物车的总计
-	
 	public Cart(){}
-	
 	public Map<String, CartItem> getItems() {
 		return items;
 	}
@@ -49,11 +50,10 @@ public class Cart {
 	}
 
 	//删除购物项
-	public void remove( String pid ){
+	public void remove( String pid ) {
 		//从Map集合中删除指定Key的元素（PID就是Key）
 		items.remove(pid);
 	}
-	
 	public void clear(){
 		items.clear();
 	}

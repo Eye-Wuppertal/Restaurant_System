@@ -90,24 +90,12 @@ public class UserController {
         userService.registUser(user);
 
         //通过Model对象把名为msg的字符串带到页面。
-        model.addAttribute("msg", "注册成功！请接收邮件，激活您的账号。");
+        model.addAttribute("msg", "注册成功！");
 
         return "info";
     }
 
 
-    //激活用户
-    @RequestMapping("/active")
-    public String active( String code , Model model ){//接收提交的用户信息，并封装成User对象
-
-        //调用业务逻辑，激活用户
-        userService.activeUser(code);
-
-        //通过Model对象把名为msg的字符串带到页面。
-        model.addAttribute("msg", "激活成功！您的账号已经可以使用了。");
-
-        return "info";
-    }
 
 
     //转跳到登录页面
@@ -125,12 +113,12 @@ public class UserController {
         String result;
         if( user == null ){
             //登录失败，则在信息页面显示“登录失败”
-            model.addAttribute("msg","登录失败，请重新登录，或联系先激活账户。");
+            model.addAttribute("msg","登录失败，请重新登录。");
             result = "info";//转跳到info页面
         }else{
-            //登录成功，则把用户对象保存到Session中，并转跳到商城首页，
+            //登录成功，则把用户对象保存到Session中，并转跳到首页，
             model.addAttribute( Constract.CURRENT_USER , user);//因为类上的面SessionAttrubtes注解的设置，此对象保存到Session域
-            result = "redirect:/index";//返回的路径前面加redirect，此转跳的方式为重定向
+            result = "/index";//返回的路径前面加redirect，此转跳的方式为重定向
         }
 
         return result;

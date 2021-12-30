@@ -8,20 +8,16 @@
 <mapper namespace="com.tal.mapper.UserMapper">
 
     <!-- SQL片段 ,本表的所有字段，当下面的SQL需要用到所有字段的列表时，引用此SQL片段即可-->
-    <sql id="all_fields"> uid,username,password,name,email,telephone,birthday,sex,state,code </sql>
+    <sql id="all_fields"> uid,username,password,name,telephone,birthday,sex</sql>
 
     <!-- 把用户对象的信息插入数据库表中 -->
     <insert id="insertUser" parameterType="User">
         insert into tb_user
         ( <include refid="all_fields"/> )
         values
-        (#{uid},#{username},#{password},#{name},#{email},#{telephone},#{birthday},#{sex},#{state},#{code})
+        (#{uid},#{username},#{password},#{name},#{telephone},#{birthday},#{sex})
     </insert>
 
-    <!-- 激活用户：把state字段值改为1，把code字段值改为空 -->
-    <update id="activeUser">
-        update tb_user set state=1,code='' where code=#{code}
-    </update>
 
     <!-- 根据用户名（username）取得用户对象，因为username字段是有唯一约束的，所以取到的只能是一条或零条 -->
     <select id="findByUsername" resultType="User">

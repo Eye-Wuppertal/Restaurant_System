@@ -42,8 +42,7 @@ public class OrderController {
 	
 	//确认订单
 	@RequestMapping("confirmOrder")
-	public String confirmOrder( Order order , Model model ){//此订单对象中封装了OID、telephone,name,address
-		//调用业务逻辑，把收货信息更新到订单记录中（因为此订单已插入数据库表，所以是更新）
+	public String confirmOrder( Order order , Model model ){//此订单对象中封装了OID、
 		orderService.confirmOrder( order );
 		
 		//把信息保存到Model

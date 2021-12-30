@@ -7,89 +7,69 @@
 		<%@ include file="include_import.jsp" %>
 </head>
 
-	<body>
+<body>
+	<div class="container-fluid">
+
+		<!--
+			描述：菜单栏
+		-->
 		<div class="container-fluid">
-
-			<!--
-            	时间：2015-12-30
-            	描述：菜单栏
-            -->
-			<div class="container-fluid">
-				<div class="col-md-4">
-					<img src="${pageContext.request.contextPath}../resources/img/logo2.png"  alt=""/>
-				</div>
-				<div class="col-md-5">
-					<img src="${pageContext.request.contextPath}../resources/img/header.png"  alt=""/>
-				</div>
-				<div class="col-md-3" style="padding-top:20px">
-					<ol class="list-inline">
-						<%@ include file="include_login.jsp" %>
-					</ol>
-				</div>
+			<div class="col-md-3">
 			</div>
-			<!--
-            	时间：2015-12-30
-            	描述：导航条
-            -->
-			<div class="container-fluid">
-				<nav class="navbar navbar-inverse">
-					<div class="container-fluid">
-						<!-- Brand and toggle get grouped for better mobile display -->
-						<div class="navbar-header">
-							<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-								<span class="sr-only">Toggle navigation</span>
-								<span class="icon-bar"></span>
-								<span class="icon-bar"></span>
-								<span class="icon-bar"></span>
-							</button>
-							<a class="navbar-brand" href="#">首页</a>
-						</div>
-
-						<!-- Collect the nav links, forms, and other content for toggling -->
-						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-							<%@ include file="include_nav.jsp" %>
-
-						</div>
-						<!-- /.navbar-collapse -->
+			<div class="col-md-4">
+				<img src="${pageContext.request.contextPath}../resources/image/restaurant/res_logo01.png"  alt="图片无法显示"/>
+			</div>
+			<div class="text-center" style="padding-top:60px" >
+				<ol class="list-inline">
+					<%@ include file="include_login.jsp"%>
+				</ol>
+			</div>
+		</div>
+		<!--
+			描述：导航条
+		-->
+		<div class="container-fluid">
+			<nav class="navbar navbar-inverse">
+				<div class="container-fluid">
+					<!-- Brand and toggle get grouped for better mobile display -->
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+						<a class="navbar-brand" href="#">首页</a>
 					</div>
-					<!-- /.container-fluid -->
-				</nav>
-			</div>
 
-			<div class="container-fluid">
-				<div class="main_con" style="height:300px;">
-				
-					<h3>${msg }</h3>
-				
-				
-				
+					<!-- Collect the nav links, forms, and other content for toggling -->
+					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+						<%@ include file="include_nav.jsp" %>
+
+					</div>
+					<!-- /.navbar-collapse -->
 				</div>
-			</div>
-
+				<!-- /.container-fluid -->
+			</nav>
 		</div>
+
 		<div class="container-fluid">
-			<div style="margin-top:50px;">
-				<img src="${pageContext.request.contextPath}../resources/img/footer.jpg" width="100%" height="78" alt="我们的优势" title="我们的优势" />
-			</div>
+			<div class="main_con" style="height:300px;">
 
-			<div style="text-align: center;margin-top: 5px;">
-				<ul class="list-inline">
-					<li><a href="info.jsp">关于我们</a></li>
-					<li><a>联系我们</a></li>
-					<li><a>招贤纳士</a></li>
-					<li><a>法律声明</a></li>
-					<li><a>友情链接</a></li>
-					<li><a>支付方式</a></li>
-					<li><a>配送方式</a></li>
-					<li><a>服务声明</a></li>
-					<li><a>广告声明</a></li>
-				</ul>
-			</div>
-			<div style="text-align: center;margin-top: 5px;margin-bottom:20px;">
-				Copyright &copy; 2005-2016 明德商城 版权所有
+				<h3>${msg}</h3>
+
+
 			</div>
 		</div>
 
-	</body>
+	</div>
+	<div class="container-fluid">
+
+		<div style="text-align: center;margin-top: 5px;margin-bottom:20px;">
+			Copyright &copy; 2021 HBUT 版权所有
+		</div>
+	</div>
+
+</body>
 
 </html>

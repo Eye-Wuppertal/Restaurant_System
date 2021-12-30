@@ -29,24 +29,21 @@
 
 	
 			<!--
-            	时间：2015-12-30
             	描述：菜单栏
             -->
 			<div class="container-fluid">
+				<div class="col-md-3">
+				</div>
 				<div class="col-md-4">
-					<img src="${pageContext.request.contextPath}../resources/img/logo2.png"  alt=""/>
+					<img src="${pageContext.request.contextPath}../resources/image/restaurant/res_logo01.png"  alt="图片无法显示"/>
 				</div>
-				<div class="col-md-5">
-					<img src="${pageContext.request.contextPath}../resources/img/header.png"  alt=""/>
-				</div>
-				<div class="col-md-3" style="padding-top:20px">
+				<div class="text-center" style="padding-top:60px" >
 					<ol class="list-inline">
-						<%@ include file="include_login.jsp" %>
+						<%@ include file="include_login.jsp"%>
 					</ol>
 				</div>
 			</div>
 			<!--
-            	时间：2015-12-30
             	描述：导航条
             -->
 			<div class="container-fluid">
@@ -102,7 +99,7 @@
 									<a target="_blank">${oi.product.pname }</a>
 								</td>
 								<td>
-									￥${oi.product.shopPrice }
+									￥${oi.product.pPrice }
 								</td>
 								<td>
 									${oi.count }
@@ -119,7 +116,7 @@
 				</div>
 
 				<div style="text-align:right;margin-right:120px;">
-					商品金额: <strong style="color:#ff6600;">￥${order.total }元</strong>
+					共计: <strong style="color:#ff6600;">￥${order.total }元</strong>
 				</div>
 
 			</div>
@@ -129,76 +126,33 @@
 				<form id="frm_confirmOrder" action="${pageContext.request.contextPath}/order/confirmOrder" method="post" class="form-horizontal" style="margin-top:5px;margin-left:150px;">
 				<%--需要提交当前订单的OID --%>
 					<input type="hidden" name="oid" value="${order.oid }"/>
-					<div class="form-group">
-						<label for="ipt_name" class="col-sm-1 control-label">收货人</label>
-						<div class="col-sm-5">
-							<input name="name" type="text" class="form-control" id="ipt_name" placeholder="请输收货人">
-						</div>
-					</div>
-					<div class="form-group">
-						<label for="ipt_address" class="col-sm-1 control-label">地址</label>
-						<div class="col-sm-5">
-							<input name="address" type="text" class="form-control" id="ipt_address" placeholder="请输入收货地址">
-						</div>
-					</div>
-					<div class="form-group">
-						<label for="ipt_telephone" class="col-sm-1 control-label">电话</label>
-						<div class="col-sm-5">
-							<input name="telephone" type="text" class="form-control" id="ipt_telephone" placeholder="请输入联系方式">
-						</div>
-					</div>
+
 				</form>
 
 				<hr/>
 
 				<div style="margin-top:5px;margin-left:150px;">
-					<strong>选择银行：</strong>
-					<p>
-						<br/>
-						<label>
-							<input type="radio" name="pd_FrpId" value="ICBC-NET-B2C" checked="checked"/>
-							工商银行
-						</label>
-						<img src="${pageContext.request.contextPath}../resources/bank_img/icbc.bmp" alt=""/>&nbsp;&nbsp;&nbsp;&nbsp;
-						<label>
-							&nbsp;&nbsp;&nbsp;&nbsp;
-							<input type="radio" name="pd_FrpId" value="BOC-NET-B2C"/>
-						</label>中国银行
-						<img src="${pageContext.request.contextPath}../resources/bank_img/bc.bmp" alt=""/>&nbsp;&nbsp;&nbsp;&nbsp;
-						<label>
-							&nbsp;&nbsp;&nbsp;&nbsp;
-							<input type="radio" name="pd_FrpId" value="ABC-NET-B2C"/>
-						</label>农业银行
-						<img src="${pageContext.request.contextPath}../resources/bank_img/abc.bmp" alt=""/>
-						<br/>
-						<br/>
-						<label>
-							<input type="radio" name="pd_FrpId" value="BOCO-NET-B2C"/>
-							交通银行
-						</label>
-						<img src="${pageContext.request.contextPath}../resources/bank_img/bcc.bmp" alt=""/>&nbsp;&nbsp;&nbsp;&nbsp;
-						<label>
-							&nbsp;&nbsp;&nbsp;&nbsp;
-							<input type="radio" name="pd_FrpId" value="PINGANBANK-NET"/>
-						</label>平安银行
-						<img src="${pageContext.request.contextPath}../resources/bank_img/pingan.bmp" alt=""/>&nbsp;&nbsp;&nbsp;&nbsp;
-						<label>
-							&nbsp;&nbsp;&nbsp;&nbsp;
-							<input type="radio" name="pd_FrpId" value="CCB-NET-B2C"/>
-						</label>建设银行
-						<img src="${pageContext.request.contextPath}../resources/bank_img/ccb.bmp" alt=""/>
-						<br/>
-						<br/>
-						<label>
-							<input type="radio" name="pd_FrpId" value="CEB-NET-B2C"/>
-							光大银行
-						</label>
-						<img src="${pageContext.request.contextPath}../resources/bank_img/guangda.bmp" alt=""/>&nbsp;&nbsp;&nbsp;&nbsp;
-						<label>
-							&nbsp;&nbsp;&nbsp;&nbsp;
-							<input type="radio" name="pd_FrpId" value="CMBCHINA-NET-B2C"/>
-						</label>招商银行
-						<img src="${pageContext.request.contextPath}../resources/bank_img/cmb.bmp" alt=""/>
+<%--					<strong>选择支付方式：</strong>--%>
+<%--					<p>--%>
+<%--						<br/>--%>
+<%--						<label>--%>
+<%--							<input type="radio" name="pd_FrpId" value="wepay" checked="checked"/>--%>
+<%--							微信支付--%>
+<%--						</label>--%>
+<%--						<img src="${pageContext.request.contextPath}../resources/image/restaurant/wepay.png" width="200" height="100" alt=""/>&nbsp;&nbsp;&nbsp;&nbsp;--%>
+<%--						<label>--%>
+<%--							&nbsp;&nbsp;&nbsp;&nbsp;--%>
+<%--							<input type="radio" name="pd_FrpId" value="alipay"/>--%>
+<%--						</label>支付宝支付--%>
+<%--						<img src="${pageContext.request.contextPath}../resources/image/restaurant/alipay.png" width="200" height="100" alt=""/>&nbsp;&nbsp;&nbsp;&nbsp;--%>
+<%--						<label>--%>
+<%--							&nbsp;&nbsp;&nbsp;&nbsp;--%>
+<%--							<input type="radio" name="pd_FrpId" value="meitpay"/>--%>
+<%--						</label>美团支付--%>
+<%--						<img src="${pageContext.request.contextPath}../resources/image/restaurant/meitpay.png" width="200" height="100" alt=""/>--%>
+<%--						<br/>--%>
+<%--						<br/>--%>
+
 
 					</p>
 					<hr/>
@@ -213,25 +167,9 @@
 
 		</div>
 
-		<div style="margin-top:50px;">
-			<img src="${pageContext.request.contextPath}../resources/image/footer.jpg" width="100%" height="78" alt="我们的优势" title="我们的优势" />
-		</div>
 
-		<div style="text-align: center;margin-top: 5px;">
-			<ul class="list-inline">
-				<li><a>关于我们</a></li>
-				<li><a>联系我们</a></li>
-				<li><a>招贤纳士</a></li>
-				<li><a>法律声明</a></li>
-				<li><a>友情链接</a></li>
-				<li><a target="_blank">支付方式</a></li>
-				<li><a target="_blank">配送方式</a></li>
-				<li><a>服务声明</a></li>
-				<li><a>广告声明</a></li>
-			</ul>
-		</div>
 		<div style="text-align: center;margin-top: 5px;margin-bottom:20px;">
-			Copyright &copy; 2005-2016 明德商城 版权所有
+			Copyright &copy; 2021 HBUT 版权所有
 		</div>
 
 	</body>

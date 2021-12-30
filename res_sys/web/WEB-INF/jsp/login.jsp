@@ -2,7 +2,7 @@
 <!doctype html>
 <html>
 <head>
-		<title>会员登录</title>
+		<title>登录</title>
 		<%@ include file="include_import.jsp" %>
 		
 
@@ -29,28 +29,22 @@ font {
 </head>
 <body>
 	
-	
-	
-	
 			<!--
-            	时间：2015-12-30
             	描述：菜单栏
             -->
 			<div class="container-fluid">
+				<div class="col-md-3">
+				</div>
 				<div class="col-md-4">
-					<img src="${pageContext.request.contextPath}../resources/img/logo2.png"  alt=""/>
+					<img src="${pageContext.request.contextPath}../resources/image/restaurant/res_logo01.png"  alt="图片无法显示"/>
 				</div>
-				<div class="col-md-5">
-					<img src="${pageContext.request.contextPath}../resources/img/header.png"  alt=""/>
-				</div>
-				<div class="col-md-3" style="padding-top:20px">
+				<div class="text-center" style="padding-top:60px" >
 					<ol class="list-inline">
-						<%@ include file="include_login.jsp" %>
+						<%@ include file="include_login.jsp"%>
 					</ol>
 				</div>
 			</div>
 			<!--
-            	时间：2015-12-30
             	描述：导航条
             -->
 			<div class="container-fluid">
@@ -84,14 +78,14 @@ font {
 	
 	
 	
-<div class="container"  style="width:100%;height:460px;background:#FF2C4C url('${pageContext.request.contextPath}/resources/images/loginbg.jpg') no-repeat;">
+<div class="container"  style="width:100%;height:460px;background:#2cc3ff url('${pageContext.request.contextPath}/resources/image/restaurant/login_bg.jpg') no-repeat;">
 <div class="row"> 
 	<div class="col-md-7">
 	</div>
 	
 	<div class="col-md-5">
 				<div style="width:440px;border:1px solid #E7E7E7;padding:20px 0 20px 30px;border-radius:5px;margin-top:60px;background:#fff;">
-				<span>会员登录</span>USER LOGIN
+				<span>登录</span>USER LOGIN
 
 				<div>&nbsp;</div>
 				
@@ -105,20 +99,10 @@ font {
     </div>
   </div>
    <div class="form-group">
-    <label for="inputPassword3" class="col-sm-2 control-label">密码</label>
+    <label class="col-sm-2 control-label">密码</label>
     <div class="col-sm-6">
 		<label for="inputPassword2"></label><input type="password" name="password" class="form-control" id="inputPassword2" placeholder="请输入密码">
     </div>
-  </div>
-   <div class="form-group">
-        <label for="inputPassword3" class="col-sm-2 control-label">验证码</label>
-    <div class="col-sm-3">
-      <input type="text" class="form-control" id="inputPassword3" placeholder="请输入验证码">
-    </div>
-    <div class="col-sm-3">
-      <img src="${pageContext.request.contextPath}../resources/image/captcha.jhtml" alt=""/>
-    </div>
-    
   </div>
    <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
@@ -144,24 +128,7 @@ font {
 </div>
 </div>	
 
-	<div style="margin-top:50px;">
-			<img src="${pageContext.request.contextPath}../resources/image/footer.jpg" width="100%" height="78" alt="我们的优势" title="我们的优势" />
-		</div>
-
-		<div style="text-align: center;margin-top: 5px;">
-			<ul class="list-inline">
-				<li><a>关于我们</a></li>
-				<li><a>联系我们</a></li>
-				<li><a>招贤纳士</a></li>
-				<li><a>法律声明</a></li>
-				<li><a>友情链接</a></li>
-				<li><a target="_blank">支付方式</a></li>
-				<li><a target="_blank">配送方式</a></li>
-				<li><a>服务声明</a></li>
-				<li><a>广告声明</a></li>
-			</ul>
-		</div>
 		<div style="text-align: center;margin-top: 5px;margin-bottom:20px;">
-			Copyright &copy; 2005-2016 明德商城 版权所有
+			Copyright &copy; 2021 HBUT 版权所有
 		</div>
 </body></html>

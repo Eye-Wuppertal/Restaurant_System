@@ -8,12 +8,11 @@
 <mapper namespace="com.tal.mapper.ProductMapper">
 
 	<!-- 所有字段的SQL片段 -->
-	<sql id="all_fields"> pid,pname,market_price,shop_price,pimage,pdate,is_hot,pdesc,pflag,cid </sql>
+	<sql id="all_fields"> pid,pname,pprice,pimage,pdate,is_hot,pflag,cid </sql>
 
 	<!-- 进行字段映射，表中的字段名和类中的属性名不一样时使用，注意：相同的可以不管，只设置不同的 -->
 	<resultMap type="Product" id="map_product">
-		<result column="market_price" property="marketPrice" />
-		<result column="shop_price" property="shopPrice" />
+		<result column="pprice" property="pPrice" />
 		<result column="is_hot" property="isHot" />
 	</resultMap>
 
@@ -48,7 +47,7 @@
 					cid=#{cid}
 				</if>
 				<if test="keyword != null">
-					and (pname like "%"#{keyword}"%" or pdesc like "%"#{keyword}"%") 
+					and (pname like "%"#{keyword}"%" )
 				</if>
 			</where>
 			limit #{startIndex},#{pageSize}				
@@ -62,7 +61,7 @@
 					cid=#{cid}
 				</if>
 				<if test="keyword != null">
-					and (pname like "%"#{keyword}"%" or pdesc like "%"#{keyword}"%") 
+					and (pname like "%"#{keyword}"%" )
 				</if>
 			</where>
 	</select>

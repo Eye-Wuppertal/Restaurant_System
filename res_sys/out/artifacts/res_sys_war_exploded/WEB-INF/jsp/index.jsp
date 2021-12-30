@@ -1,11 +1,9 @@
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-
-
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false" %>
 <!DOCTYPE html>
 <html>
 
 <head>
-  <title>明德商城 首页</title>
+  <title>湖工小菜馆</title>
   <%@ include file="include_import.jsp" %>
   <script>
     $(function(){
@@ -18,24 +16,21 @@
 <div class="container-fluid">
 
   <!--
-      时间：2015-12-30
       描述：菜单栏
   -->
   <div class="container-fluid">
+    <div class="col-md-3">
+    </div>
     <div class="col-md-4">
-      <img src="../resources/img/logo2.png"  alt="图片无法显示"/>
+      <img src="${pageContext.request.contextPath}../resources/image/restaurant/res_logo01.png"  alt="图片无法显示"/>
     </div>
-    <div class="col-md-5">
-      <img src="${pageContext.request.contextPath}../resources/img/header.png"  alt="图片无法显示"/>
-    </div>
-    <div class="col-md-3" style="padding-top:20px">
+    <div class="text-center" style="padding-top:60px" >
       <ol class="list-inline">
-        <%@ include file="include_login.jsp" %>
+        <%@ include file="include_login.jsp"%>
       </ol>
     </div>
   </div>
   <!--
-      时间：2015-12-30
       描述：导航条
   -->
   <div class="container-fluid">
@@ -66,8 +61,6 @@
   </div>
 
   <!--
-      作者：ci2713@163.com
-      时间：2015-12-30
       描述：轮播条
   -->
   <div class="container-fluid">
@@ -82,19 +75,19 @@
       <!-- Wrapper for slides -->
       <div class="carousel-inner" role="listbox">
         <div class="item active">
-          <img src="${pageContext.request.contextPath}../resources/img/1.jpg" alt="">
+          <img src="${pageContext.request.contextPath}../resources/image/restaurant/food_flide01.png" alt="">
           <div class="carousel-caption">
 
           </div>
         </div>
         <div class="item">
-          <img src="${pageContext.request.contextPath}../resources/img/2.jpg" alt="">
+          <img src="${pageContext.request.contextPath}../resources/image/restaurant/food_flide02.png" alt="">
           <div class="carousel-caption">
 
           </div>
         </div>
         <div class="item">
-          <img src="${pageContext.request.contextPath}../resources/img/3.jpg" alt="">
+          <img src="${pageContext.request.contextPath}../resources/image/restaurant/food_flide03.png" alt="">
           <div class="carousel-caption">
 
           </div>
@@ -113,23 +106,22 @@
     </div>
   </div>
   <!--
-      作者：ci2713@163.com
-      时间：2015-12-30
       描述：商品显示
   -->
   <div class="container-fluid">
     <div class="col-md-12">
-      <h2>热门商品&nbsp;&nbsp;<img src="${pageContext.request.contextPath}../resources/img/title2.jpg" alt=""/></h2>
+      <h2>热门菜品<img src="${pageContext.request.contextPath}../resources/img/title2.jpg" alt=""/></h2>
     </div>
-    <div class="col-md-2" style="border:1px solid #E7E7E7;border-right:0;padding:0;">
-      <img src="${pageContext.request.contextPath}../resources/products/hao/big01.jpg" width="205" height="404" style="display: inline-block;" alt=""/>
+    <div class="col-md-4" style="border:1px solid #E7E7E7;border-right:0;padding:0;">
+      <img src="${pageContext.request.contextPath}../resources/image/restaurant/food_haixian_xiaolongxia.png" width="400" height="400" alt=""/>
     </div>
-    <div class="col-md-10">
-      <div class="col-md-6" style="text-align:center;height:200px;padding:0;">
+    <div class="col-md-8">
+      <div class="col-md-3" style="text-align:center;height:200px;padding:0;">
         <a href="product_info.jsp">
-          <img src="${pageContext.request.contextPath}../resources/products/hao/middle01.jpg" width="516px" height="200px" style="display: inline-block;" alt="">
+          <img src="${pageContext.request.contextPath}../resources/image/restaurant/food_haixian_niuwa.png" width="200px" height="200px" style="display: inline-block;" alt="">
         </a>
       </div>
+
 
       <c:forEach var="p" items="${hotProducts}">
         <div class="col-md-2" style="text-align:center;height:200px;padding:10px 0;">
@@ -137,76 +129,50 @@
             <img src="${pageContext.request.contextPath}../resources${p.pimage}" width="130" height="130" style="display: inline-block;" alt="">
           </a>
           <p><a href="${pageContext.request.contextPath}/showDetail?pid=${p.pid}" style='color:#666'>${p.pname }</a></p>
-          <p><span style="font-size:16px; color: #E4393C; ">&yen;${p.shopPrice }</span></p>
+          <p><span style="font-size:16px; color: #E4393C; ">&yen;${p.pPrice }</span></p>
         </div>
       </c:forEach>
 
     </div>
   </div>
+>
+
   <!--
-      作者：ci2713@163.com
-      时间：2015-12-30
-      描述：广告部分
-  -->
-  <div class="container-fluid">
-    <img src="${pageContext.request.contextPath}../resources/products/hao/ad.jpg" width="100%" alt=""/>
-  </div>
-  <!--
-      作者：ci2713@163.com
-      时间：2015-12-30
       描述：商品显示
   -->
   <div class="container-fluid">
     <div class="col-md-12">
-      <h2>最新商品&nbsp;&nbsp;<img src="${pageContext.request.contextPath}../resources/img/title2.jpg" alt=""/></h2>
+      <h2>最新菜品&nbsp;&nbsp;<img src="${pageContext.request.contextPath}../resources/img/title2.jpg" alt=""/></h2>
     </div>
-    <div class="col-md-2" style="border:1px solid #E7E7E7;border-right:0;padding:0;">
-      <img src="${pageContext.request.contextPath}../resources/products/hao/big01.jpg" width="205" height="404" style="display: inline-block;" alt=""/>
+    <div class="col-md-3" style="border:1px solid #E7E7E7;border-right:0;padding:0;">
+      <img src="${pageContext.request.contextPath}../resources/image/restaurant/food_flide01.png" width="400" height="400" style="display: inline-block;" alt=""/>
     </div>
-    <div class="col-md-10">
+    <div class="col-md-9">
       <div class="col-md-6" style="text-align:center;height:200px;padding:0;">
         <a href="./product_info.jsp">
-          <img src="${pageContext.request.contextPath}../resources/products/hao/middle01.jpg" width="516px" height="200px" style="display: inline-block;" alt="">
+          <img src="${pageContext.request.contextPath}../resources/image/restaurant/food_flide02.png" width="516px" height="200px" style="display: inline-block;" alt="">
         </a>
       </div>
 
       <c:forEach var="p" items="${newProducts}">
         <div class="col-md-2" style="text-align:center;height:200px;padding:10px 0;">
           <a href="${pageContext.request.contextPath}/showDetail?pid=${p.pid}">
-            <img src="${pageContext.request.contextPath}/resources${p.pimage}" width="130" height="130" style="display: inline-block;" alt="">
+            <img src="${pageContext.request.contextPath}../resources${p.pimage}" width="130" height="130" style="display: inline-block;" alt="">
           </a>
           <p><a href="${pageContext.request.contextPath}/showDetail?pid=${p.pid}" style='color:#666'>${p.pname }</a></p>
-          <p><span style="font-size:16px; color: #E4393C; ">&yen;${p.shopPrice }</span></p>
+          <p><span style="font-size:16px; color: #E4393C; ">&yen;${p.pPrice }</span></p>
         </div>
       </c:forEach>
 
     </div>
   </div>
+
   <!--
-      作者：ci2713@163.com
-      时间：2015-12-30
       描述：页脚部分
   -->
-  <div class="container-fluid">
-    <div style="margin-top:50px;">
-      <img src="${pageContext.request.contextPath}../resources/img/footer.jpg" width="100%" height="78" alt="我们的优势" title="我们的优势" />
-    </div>
 
-    <div style="text-align: center;margin-top: 5px;">
-      <ul class="list-inline">
-        <li><a href="info.jsp">关于我们</a></li>
-        <li><a>联系我们</a></li>
-        <li><a>招贤纳士</a></li>
-        <li><a>法律声明</a></li>
-        <li><a>友情链接</a></li>
-        <li><a>支付方式</a></li>
-        <li><a>配送方式</a></li>
-        <li><a>服务声明</a></li>
-        <li><a>广告声明</a></li>
-      </ul>
-    </div>
     <div style="text-align: center;margin-top: 5px;margin-bottom:20px;">
-      Copyright &copy; 2005-2016 明德商城 版权所有
+      Copyright &copy; 2021 HBUT 版权所有
     </div>
   </div>
 </div>

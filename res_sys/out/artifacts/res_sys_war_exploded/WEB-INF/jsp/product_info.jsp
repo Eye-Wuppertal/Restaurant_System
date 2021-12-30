@@ -19,27 +19,22 @@
 	</head>
 
 	<body>
-
-		
 			<!--
-            	时间：2015-12-30
             	描述：菜单栏
             -->
 			<div class="container-fluid">
+				<div class="col-md-3">
+				</div>
 				<div class="col-md-4">
-					<img src="${pageContext.request.contextPath}../resources/img/logo2.png"  alt=""/>
+					<img src="${pageContext.request.contextPath}../resources/image/restaurant/res_logo01.png"  alt="图片无法显示"/>
 				</div>
-				<div class="col-md-5">
-					<img src="${pageContext.request.contextPath}../resources/img/header.png"  alt=""/>
-				</div>
-				<div class="col-md-3" style="padding-top:20px">
+				<div class="text-center" style="padding-top:60px" >
 					<ol class="list-inline">
-						<%@ include file="include_login.jsp" %>
+						<%@ include file="include_login.jsp"%>
 					</ol>
 				</div>
 			</div>
 			<!--
-            	时间：2015-12-30
             	描述：导航条
             -->
 			<div class="container-fluid">
@@ -84,7 +79,7 @@
 							<div>编号：${product.pid }</div>
 						</div>
 
-						<div style="margin:10px 0 10px 0;">市场价: <strong style="color:#ef0101;">￥：${product.shopPrice }</strong> 参 考 价： <del>￥${product.marketPrice }</del>
+						<div style="margin:10px 0 10px 0;">售价: <strong style="color:#ef0101;">￥：${product.pPrice }</strong></del>
 						</div>
 
 						<div style="margin:10px 0 10px 0;">促销: <a target="_blank" title="限时抢购 (2014-07-30 ~ 2015-01-01)" style="background-color: #f07373;">限时抢购</a> </div>
@@ -101,7 +96,7 @@
 							<div style="margin:20px 0 10px 0;;text-align: center;">
 							
 							<input style="background: url('${pageContext.request.contextPath}/resources/images/product.gif') no-repeat scroll 0 -600px rgba(0, 0, 0, 0);height:36px;width:127px;" value="加入购物车" type="submit">
-							&nbsp;收藏商品</div>
+							&nbsp;</div>
 							</form>
 						</div>
 					</div>
@@ -118,22 +113,6 @@
 						<img src="${pageContext.request.contextPath}../resources${product.pimage}" alt="">
 					</div>
 
-					<div style="background-color:#d3d3d3;width:930px;padding:10px 10px;margin:10px 0 10px 0;">
-						<strong>商品参数</strong>
-					</div>
-					<div style="margin-top:10px;width:900px;">
-						<table class="table table-bordered">
-							<tbody>
-								<tr class="active">
-									<th>商品详情</th>
-								</tr>
-								<tr>
-									<td>${product.pdesc }</td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
-
 					<div style="background-color:#d3d3d3;width:900px;">
 						<table class="table table-bordered">
 							<tbody>
@@ -146,45 +125,15 @@
 							</tbody>
 						</table>
 					</div>
-
-					<div style="background-color:#d3d3d3;width:900px;">
-						<table class="table table-bordered">
-							<tbody>
-								<tr class="active">
-									<th><strong>商品咨询</strong></th>
-								</tr>
-								<tr class="warning">
-									<th>暂无商品咨询信息 <a>[发表商品咨询]</a></th>
-								</tr>
-							</tbody>
-						</table>
-					</div>
 				</div>
 
 			</div>
 		</div>
 
-		<div style="margin-top:50px;">
-			<img src="${pageContext.request.contextPath}../resources/image/footer.jpg" width="100%" height="78" alt="我们的优势" title="我们的优势" />
-		</div>
 
-		<div style="text-align: center;margin-top: 5px;">
-			<ul class="list-inline">
-				<li><a>关于我们</a></li>
-				<li><a>联系我们</a></li>
-				<li><a>招贤纳士</a></li>
-				<li><a>法律声明</a></li>
-				<li><a>友情链接</a></li>
-				<li><a target="_blank">支付方式</a></li>
-				<li><a target="_blank">配送方式</a></li>
-				<li><a>服务声明</a></li>
-				<li><a>广告声明</a></li>
-			</ul>
-		</div>
 		<div style="text-align: center;margin-top: 5px;margin-bottom:20px;">
-			Copyright &copy; 2005-2016 明德商城 版权所有
+			Copyright &copy; 2021 HBUT 版权所有
 		</div>
-
 	</body>
 
 </html>

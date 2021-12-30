@@ -42,8 +42,8 @@ public class OrderServiceImpl implements OrderService {
 		//通过商品ID查询到商品的完整信息，然后通过单价*数量，累加得到总计金额。
 		for( int i = 0 ; i < n ; i++ ){
 			Product product = productMapper.findByPid(pids[i]);
-			double shopPrice = product.getShopPrice();
-			double subTotal = shopPrice*counts[i];
+			double pPrice = product.getpPrice();
+			double subTotal = pPrice*counts[i];
 			total += subTotal;//本商品在订单项中的数量乘以此商品的单价，得到小计，累加到总计中
 			
 			OrderItem orderItem = new OrderItem( oid , pids[i] , counts[i] , subTotal , product );
@@ -63,10 +63,10 @@ public class OrderServiceImpl implements OrderService {
 	}
 
 	
-	//确认订单（补全收货信息）
+	//确认订单
 	@Override
 	public void confirmOrder(Order order) {
-		//把订单状态置为已确认
+		//把订单状态置为未制作
 		order.setState( Order.ORDER_STATE_CONFIRMED );
 		orderMapper.updateOrder(order);
 	}

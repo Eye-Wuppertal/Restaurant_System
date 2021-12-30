@@ -1,5 +1,8 @@
 package com.tal.domain;
-
+/*
+    @TODO:
+    @Author tal
+*/
 import java.util.List;
 
 //用于保存分页数据的JavaBean

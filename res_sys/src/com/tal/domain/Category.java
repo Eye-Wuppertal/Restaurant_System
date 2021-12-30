@@ -1,5 +1,8 @@
 package com.tal.domain;
-
+/*
+    @TODO:
+    @Author tal
+*/
 /*
 CREATE TABLE `tb_category` (
   `cid` VARCHAR(32) PRIMARY KEY,
